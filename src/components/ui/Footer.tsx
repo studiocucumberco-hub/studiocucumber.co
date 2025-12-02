@@ -10,7 +10,7 @@ const Footer = () => {
           <Image
             src="/logo.png"
             alt="Logo"
-            quality={100}
+            quality={75}
             width={200}
             height={60}
             priority

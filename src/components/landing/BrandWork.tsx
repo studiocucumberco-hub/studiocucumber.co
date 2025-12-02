@@ -5,12 +5,23 @@ import { motion } from "framer-motion";
 
 export default function ClientLogos() {
   const logos = [
-    "/logo.png",
-    "/logo.png",
-    "/logo.png",
-    "/logo.png",
-    "/logo.png",
-    "/logo.png",
+    "/logo-png/1.png",
+    "/logo-png/2.png",
+    "/logo-png/3.png",
+    "/logo-png/4.png",
+    "/logo-png/5.png",
+    "/logo-png/6.png",
+    "/logo-png/7.png",
+    "/logo-png/8.png",
+    "/logo-png/9.png",
+    "/logo-png/10.png",
+    "/logo-png/11.png",
+    "/logo-png/12.png",
+    "/logo-png/13.png",
+    "/logo-png/14.png",
+    "/logo-png/15.png",
+    "/logo-png/16.png",
+    "/logo-png/17.png",
   ];
 
   // Duplicate for seamless loop

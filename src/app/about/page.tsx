@@ -7,7 +7,7 @@ const About = () => {
       <div className="flex flex-col items-center text-center mb-16">
         <Image
           src="/logo.png"
-          alt="Stardust Stories Logo"
+          alt="Studio Cucumber Logo"
           width={260}
           height={100}
           className="object-contain mb-6"

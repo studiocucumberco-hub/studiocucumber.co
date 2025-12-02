@@ -7,7 +7,7 @@ export default function Hero() {
       {/* HERO SECTION — Premium Cinematic Layout */}
       <header className="relative w-full h-[88vh] mt-16 md:mt-20 text-white overflow-hidden">
         <Image
-          src="/hero (1).jpg"
+          src="/hero.jpg"
           alt="Film production backdrop"
           fill
           className="absolute inset-0 w-full h-full object-cover brightness-[0.45]"
