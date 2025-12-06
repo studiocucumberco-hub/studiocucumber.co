@@ -8,7 +8,7 @@ export default function Home() {
     <div className="h-auto">
       <Hero />
       <Portfolio />
-      <ClientLogos />
+      <ClientLogos/>
       <Reviews />
       <FAQ />
     </div>

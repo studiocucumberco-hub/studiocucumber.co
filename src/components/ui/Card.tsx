@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-
+import { usePathname } from "next/navigation";
 export interface VideoCategory {
   [key: string]: string[];
 }
@@ -56,7 +56,7 @@ function extractId(url: string): string {
     if (u.pathname.includes("/embed/")) {
       return u.pathname.split("/embed/")[1].split("?")[0];
     }
-  } catch {}
+  } catch { }
 
   return "";
 }
@@ -66,20 +66,20 @@ export default function VideoGallery() {
   const categories = Object.keys(videoCategories);
   const [active, setActive] = useState<string>(categories[0]);
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
+  const pathname = usePathname();
 
   return (
     <div className="w-full">
       {/* Tabs */}
-      <div className="flex flex-wrap gap-3 mb-8">
+      <div className="flex flex-wrap justify-center gap-3 mb-8">
         {categories.map((cat: string) => (
           <button
             key={cat}
             onClick={() => setActive(cat)}
-            className={`px-4 py-2 rounded-lg text-sm tracking-wide transition-all border ${
-              active === cat
+            className={`px-4 py-2 rounded-lg text-sm tracking-wide transition-all border ${active === cat
                 ? "bg-gray-900 text-white border-black"
                 : "border-gray-300 hover:border-black hover:bg-black/5"
-            }`}
+              }`}
           >
             {cat.replace(/([A-Z])/g, " $1")}
           </button>
@@ -87,12 +87,18 @@ export default function VideoGallery() {
       </div>
 
       {/* Video Cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+      <div
+        className={`grid gap-6 ${pathname === "/work"
+            ? "grid-cols-1 md:grid-cols-2"       
+            : "grid-cols-2 md:grid-cols-3"  
+          }`}
+      >
+
         {videoCategories[active].map((url: string, index: number) => {
           const id = extractId(url);
           const thumbnail = id
-          ? `https://img.youtube.com/vi/${id}/hqdefault.jpg`
-          : "/fallback-thumbnail.jpg";
+            ? `https://img.youtube.com/vi/${id}/hqdefault.jpg`
+            : "/fallback-thumbnail.jpg";
 
 
           return (
@@ -101,7 +107,7 @@ export default function VideoGallery() {
               onClick={() => setActiveVideo(id)}
               className="group relative bg-white border border-gray-300 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-[1.03]"
             >
-              <div className="relative w-full h-40">
+              <div className="relative w-full h-40 md:h-100 ">
                 <Image
                   src={thumbnail}
                   alt="YouTube Thumbnail"

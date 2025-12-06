@@ -3,44 +3,24 @@ import { useState } from "react";
 
 const faqs = [
   {
-    q: "What types of projects do you produce?",
-    a: "We specialise in music videos, documentary films, branded content, and short-form storytelling. If it involves a camera and a story, we’re probably into it.",
+    q: "What kind of stories does Studio Cucumber tell?",
+    a: "We work at the junction of music and history, two worlds that shape human culture and memory. Our projects range from music videos charged with energy and identity to documentary films that explore people, places, and the echoes they leave behind. Whether it’s a short-form portrait or a full-bodied narrative, we look for stories that carry heart, rhythm, and a sense of time.",
   },
   {
-    q: "What’s your typical production timeline?",
-    a: "Music videos take around 2–4 weeks. Documentaries vary widely — from a few weeks to several months depending on complexity.",
+    q: "How long does a Studio Cucumber production take?",
+    a: "Every story has its own tempo. Music videos usually move fast, around 2–4 weeks from idea spark to final cut. Documentaries unfold at their own pace, sometimes over weeks, sometimes months, depending on the depth and distance of the journey. No matter the scale, we sketch a clear roadmap early on so you always know exactly where the project is headed.",
   },
   {
-    q: "Do you help with creative direction and concept development?",
-    a: "Absolutely. Bring a rough idea, a mood board, or just a feeling — we’ll shape it into something shoot-ready.",
+    q: "Can you help find the creative direction or tone of the project?",
+    a: "Absolutely. This is where we dive deep. If you arrive with just a mood, a memory, a song, or a scattering of references, we help uncover the narrative spine. We build treatments, visual language, story flow, and the emotional beats that will define the final piece. Our goal is to make the project feel lived-in, intentional, and uniquely yours.",
   },
   {
-    q: "What’s the budget range for your projects?",
-    a: "We work across a wide range of budgets. Music videos start at indie levels and scale with complexity. Documentary budgets depend heavily on travel, crew, and duration.",
+    q: "What shapes the budget for a project?",
+    a: "Budgets shift depending on the scope: crew size, locations, equipment, travel, post-production, and the ambition of the idea itself. Music videos can start compact and grow with the vision. Documentaries depend on research, interviews, logistics, and the length of the journey. We share a transparent breakdown from the start, so your resources align perfectly with the story you want to tell.",
   },
   {
-    q: "Do you offer editing and post-production services?",
-    a: "Yes — editing, colour grading, sound design, VFX (when needed), and mastering. We don’t leave you hanging with raw footage.",
-  },
-  {
-    q: "Can you work with artists or brands outside our city/country?",
-    a: "Definitely. Remote collaboration is standard for us. We work with clients across states and countries.",
-  },
-  {
-    q: "Do you provide gear and crew?",
-    a: "Yes. We can assemble a full production team plus pro-grade equipment tailored to your project.",
-  },
-  {
-    q: "Can we use our own crew or equipment?",
-    a: "Of course. We’re happy to collaborate with your team or blend crews — we play well with others.",
-  },
-  {
-    q: "What’s your revision policy?",
-    a: "Each project includes a defined number of revision rounds depending on the package. We keep it balanced — perfection without endless loops.",
-  },
-  {
-    q: "How do we get started?",
-    a: "Reach out with a brief description of your project. We’ll schedule a call, understand your needs, quote it, and move into pre-production.",
+    q: "Do you handle everything from shoot to the final cut?",
+    a: "The entire pipeline stays in our hands. From cinematography and sound to editing, colour, music-driven pacing, and final mastering, we keep the process seamless and the vision cohesive. When everything flows through one creative house, the story stays true to its heartbeat from the first frame to the last.",
   },
 ];
 
@@ -81,9 +61,8 @@ export default function FAQ() {
             </button>
 
             <div
-              className={`overflow-hidden transition-all duration-300 ${
-                open === i ? "max-h-40 opacity-100 p-4 pt-0" : "max-h-0 opacity-0"
-              }`}
+              className={`text-justify overflow-hidden transition-all duration-300 ${open === i ? "max-h-96 sm:max-h-40 opacity-100 p-4 pt-0" : "max-h-0 opacity-0"
+                }`}
             >
               <p className="text-gray-600 text-sm leading-relaxed">
                 {item.a}

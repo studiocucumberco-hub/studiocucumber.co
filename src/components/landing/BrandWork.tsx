@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function ClientLogos() {
   const logos = [
@@ -24,13 +25,25 @@ export default function ClientLogos() {
     "/logo-png/17.png",
   ];
 
-  // Duplicate for seamless loop
   const loop = [...logos, ...logos];
+  const [duration, setDuration] = useState(30);
+
+  useEffect(() => {
+    const updateSpeed = () => {
+      if (window.innerWidth < 768) {
+        setDuration(5);
+      } else {
+        setDuration(30);
+      }
+    };
+
+    updateSpeed();
+    window.addEventListener("resize", updateSpeed);
+    return () => window.removeEventListener("resize", updateSpeed);
+  }, []);
 
   return (
     <section className="w-full font-Mont bg-[#f8f8f8] px-6 sm:px-10 md:px-20 lg:px-24 pb-16">
-
-      {/* HEADER */}
       <div className="text-left mb-10">
         <h2 className="text-2xl sm:text-3xl md:text-4xl uppercase text-[#3E4772] pb-2 tracking-tight font-bold">
           Brands We Worked With
@@ -40,14 +53,14 @@ export default function ClientLogos() {
         </p>
       </div>
 
-      {/* FRAMER MOTION MARQUEE */}
       <div className="overflow-hidden w-full">
         <motion.div
+          key={duration}     // 🔥 FIX: re-run animation on duration change
           className="flex gap-16 items-center"
           animate={{ x: ["0%", "-100%"] }}
           transition={{
             repeat: Infinity,
-            duration: 12,      // adjust speed here
+            duration: duration,
             ease: "linear",
           }}
         >
@@ -56,14 +69,13 @@ export default function ClientLogos() {
               key={idx}
               src={logo}
               alt="logo"
-              width={140}
-              height={60}
+              width={160}
+              height={80}
               className="opacity-80 hover:opacity-100 transition object-contain"
             />
           ))}
         </motion.div>
       </div>
-
     </section>
   );
 }
