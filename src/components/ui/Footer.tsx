@@ -23,7 +23,7 @@ const Footer = () => {
               <a
                 href="https://www.instagram.com/studiocucumber"
                 aria-label="Instagram"
-                className="hover:text-[#e1a730] transition-colors"
+                className="hover:text-gray-600 transition-colors"
               >
                 <svg
                   className="w-6 h-6 sm:w-7 sm:h-7"
@@ -44,7 +44,7 @@ const Footer = () => {
               <a
                 href="https://wa.link/250kfn"
                 aria-label="WhatsApp"
-                className="hover:text-[#e1a730] transition-colors"
+                className="hover:text-gray-600 transition-colors"
               >
                 <svg
                   className="w-6 h-6 sm:w-7 sm:h-7"
@@ -57,6 +57,41 @@ const Footer = () => {
                     clipRule="evenodd"
                   />
                   <path d="M16.735 13.492c-.038-.018-1.497-.736-1.756-.83a1.008 1.008 0 0 0-.34-.075c-.196 0-.362.098-.49.291-.146 .217-.587.732-.723.886-.018.02-.042.045-.057.045-.013 0-.239-.093-.307-.123-1.564-.68-2.751-2.313-2.914-2.589-.023-.04-.024-.057-.024-.057.005-.021.058-.074.085-.101.08-.079.166-.182.249-.283l.117-.14c.121-.14.175-.25.237-.375l.033-.066a.68.68 0 0 0-.02-.64c-.034-.069-.65-1.555-.715-1.711-.158-.377-.366-.552-.655-.552-.027 0 0 0-.112.005-.137.005-.883.104-1.213.311-.35.22-.94.924-.94 2.16 0 1.112.705 2.162 1.008 2.561l.041.06c1.161 1.695 2.608 2.951 4.074 3.537 1.412.564 2.081.63 2.461.63.16 0 .288-.013.4-.024l.072-.007c.488-.043 1.56-.599 1.804-1.276.192-.534.243-1.117.115-1.329-.088-.144-.239-.216-.43-.308Z" />
+                </svg>
+              </a>
+            </li>
+
+            {/* YouTube */}
+            <li>
+              <a
+                href="https://www.youtube.com/@studiocucumber"
+                aria-label="YouTube"
+                className="hover:text-gray-600 transition-colors"
+              >
+                <svg className="w-6 h-6 sm:w-7 sm:h-7" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                  <path fillRule="evenodd" d="M21.7 8.037a4.26 4.26 0 0 0-.789-1.964 2.84 2.84 0 0 0-1.984-.839c-2.767-.2-6.926-.2-6.926-.2s-4.157 0-6.928.2a2.836 2.836 0 0 0-1.983.839 4.225 4.225 0 0 0-.79 1.965 30.146 30.146 0 0 0-.2 3.206v1.5a30.12 30.12 0 0 0 .2 3.206c.094.712.364 1.39.784 1.972.604.536 1.38.837 2.187.848 1.583.151 6.731.2 6.731.2s4.161 0 6.928-.2a2.844 2.844 0 0 0 1.985-.84 4.27 4.27 0 0 0 .787-1.965 30.12 30.12 0 0 0 .2-3.206v-1.516a30.672 30.672 0 0 0-.202-3.206Zm-11.692 6.554v-5.62l5.4 2.819-5.4 2.801Z" clipRule="evenodd"/>
+                </svg>
+
+              </a>
+            </li>
+
+            {/* Facebook */}
+            <li>
+              <a
+                href="https://www.facebook.com/studiocucumber"
+                aria-label="Facebook"
+                className="hover:text-gray-600 transition-colors"
+              >
+                <svg
+                  className="w-6 h-6 sm:w-7 sm:h-7"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10Z"
+                    clipRule="evenodd"
+                  />
                 </svg>
               </a>
             </li>

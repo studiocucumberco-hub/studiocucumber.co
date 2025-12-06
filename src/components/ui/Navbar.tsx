@@ -59,8 +59,8 @@ export default function Navbar() {
 
 
         {/* Left Desktop Links */}
-        <ul className="hidden md:flex space-x-10 lg:space-x-16 absolute left-0 tracking-wider text-sm md:text-md">
-          <li><Link href="/">Home</Link></li>
+        <ul className="hidden md:block">
+
         </ul>
 
         {/* Logo */}

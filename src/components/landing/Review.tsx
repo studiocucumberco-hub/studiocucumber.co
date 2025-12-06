@@ -6,24 +6,29 @@ import "swiper/css";
 
 const reviews = [
   {
-    title: "“Absolutely blown away!”",
-    text: "The team took our rough idea for a music video and turned it into something cinematic. Smooth communication, zero drama, and the final cut? Chef’s kiss.",
+    title: "Absolutely blown away!",
+    text: "We came in with nothing but a half-baked idea and a song we loved. The team jumped in with such enthusiasm and turned it into a full-blown cinematic experience. From planning the shots to the final colour grade, everything felt intentional and stylish. Smooth communication, zero drama, and the final cut? The song is at almost 6 million hits now and still growing.",
+    reviewer: "- Chintamani (Folk artist)",
   },
   {
-    title: "“Professional, creative, and fast.”",
-    text: "We worked with them on a short documentary, and they handled everything from planning to editing with so much care. The storytelling was beyond what we expected.",
+    title: "A film that truly captured who we are.",
+    text: "Working with the team was an absolute pleasure from start to finish. They took the time to understand our legacy, our people, and the care that goes into every metre of fabric we produce at Prem Textiles. The final corporate film showcased our manufacturing process with such clarity and elegance, but what impressed us most was how beautifully they highlighted our values craftsmanship, quality, and reliability. Our global partners have already responded with overwhelmingly positive feedback. This film has become a proud representation of our brand.",
+    reviewer: "- Saurabh Jain (Prem Textiles)",
   },
   {
-    title: "“They made the whole process fun.”",
-    text: "I was nervous about being on camera, but the crew made me feel completely at ease. The final product looked slick and super polished.",
+    title: "The Himalayas, exactly the way we feel them.",
+    text: "Partnering with Studio Cucumber for our high-altitude expedition film was an incredible experience. They kept up with us through snow, gravel, thin air, and some of the highest motorable roads on the planet, and pulled off breathtaking footage at every turn. The film perfectly reflects the spirit of Blue Mountain Expeditions: resilience, adventure, and a deep love for the mountains. Truly outstanding work in some of the toughest conditions imaginable.",
+    reviewer: "- Dheeraj Bambroo (Blue Mountain Expeditions)",
   },
   {
-    title: "“Quality that feels way above the budget.”",
-    text: "Our band’s first video with them looked like something straight off a major label release. We’re already planning the next one.",
+    title: "Quality that feels way above the budget.",
+    text: "Our band's first video with them looked like something straight off a major label release. We're already planning the next one.",
+    reviewer: "",
   },
   {
-    title: "“Reliable and ridiculously talented.”",
-    text: "They delivered on time, kept us updated, and brought fresh ideas at every step. Couldn’t ask for a better production partner.",
+    title: "Reliable and ridiculously talented.",
+    text: "They delivered on time, kept us updated, and brought fresh ideas at every step. Couldn't ask for a better production partner.",
+    reviewer: "",
   },
 ];
 
@@ -61,9 +66,14 @@ export default function Reviews() {
               <h3 className="text-[#3E4772] text-lg sm:text-xl font-semibold mb-3 tracking-wide">
                 {r.title}
               </h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                {r.text}
-              </p>
+              <div>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {r.text}
+                </p>
+                <p className="text-gray-500 text-xs mt-3 font-medium">
+                  {r.reviewer}
+                </p>
+              </div>
             </div>
           </SwiperSlide>
         ))}

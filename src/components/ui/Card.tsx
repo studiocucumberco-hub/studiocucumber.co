@@ -2,11 +2,18 @@
 import { useState } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+
 export interface VideoCategory {
   [key: string]: string[];
 }
 
 export const videoCategories: VideoCategory = {
+  MusicVideos: [
+    "https://youtu.be/DgCulfCj__g?si=E7pyyg_p8vTYq9WO",
+    "https://youtu.be/VAQDi04xMs0?si=yPW4jMOMxmW9kZLU",
+    "https://youtu.be/epFuCyC745k?si=cm9aFcCSEX1zCrAy",
+    "https://youtu.be/XIIqGGZrp9Q?si=6dGCnvFPBYOHHTvu",
+  ],
   Trailers: [
     "https://youtu.be/cWD9WhcekXQ?si=ozNtX7GqNgupM5qM",
     "https://youtu.be/J-zqmQYD29s?si=woV_gcYwwpPkPo7P",
@@ -30,37 +37,154 @@ export const videoCategories: VideoCategory = {
     "https://youtu.be/XZLvUS1sACI",
     "https://youtu.be/U4ybwJVPhPc",
   ],
+};
+
+/* --------------------- TITLES + DESCRIPTIONS ---------------------- */
+
+export const videoMeta: Record<
+  string,
+  { title: string; desc: string }[]
+> = {
   MusicVideos: [
-    "https://youtu.be/DgCulfCj__g?si=E7pyyg_p8vTYq9WO",
-    "https://youtu.be/VAQDi04xMs0?si=yPW4jMOMxmW9kZLU",
-    "https://youtu.be/epFuCyC745k?si=cm9aFcCSEX1zCrAy",
-    "https://youtu.be/XIIqGGZrp9Q?si=6dGCnvFPBYOHHTvu",
+    {
+      title: "Antariksh - Bandish Projekt feat. MC Mawali",
+      desc:
+        "Track from Bandish Projekt x Swadesi EP Khulle Naagde. A multilingual experimental rap collaboration.",
+    },
+    {
+      title: "Papletwali - Chintamani",
+      desc:
+        "Adaptation of Marathi folk ‘Ago Sargewali’, part of Zubaan’s indie artist series Pehli Pehel.",
+    },
+    {
+      title: "O Hansini - Aninda Bose",
+      desc:
+        "A New York–shot revival of the Kishore Kumar classic from Zehreela Insaan.",
+    },
+    {
+      title: "Kya Yehi Pyaar Hai - Aninda Bose",
+      desc:
+        "Another Kishore-Lata classic recreated with Aishwarya Majumdar; originally from the film Rocky.",
+    },
+  ],
+
+  Trailers: [
+    {
+      title: "Sangam: The Confluence",
+      desc:
+        "A deep exploration of Maha Kumbh mythologies. Screened in 20+ festivals worldwide.",
+    },
+    {
+      title: "Sanatan",
+      desc:
+        "A spiritual walk along the ancient ghats of Banaras exploring timeless questions of life.",
+    },
+    {
+      title: "Elevate",
+      desc:
+        "Man and machine conquer ten of the highest Himalayan roads in a gripping adventure.",
+    },
+    {
+      title: "Elevate (Extended)",
+      desc:
+        "Extended version of the Himalayan journey, previously titled 'Aspire to Inspire'.",
+    },
+    {
+      title: "High Riders",
+      desc:
+        "A 3125 km motorcycle expedition to remote high-altitude lakes.",
+    },
+  ],
+
+  SocietyHistory: [
+    {
+      title: "Of Anarchy",
+      desc:
+        "William Dalrymple introduces his book on the rise of the East India Company.",
+    },
+    {
+      title: "The Sound of Silence",
+      desc:
+        "The Purohits bring joy to special children while battling societal odds.",
+    },
+    {
+      title: "Aastha",
+      desc:
+        "A glimpse into seniors finding family at Aastha Old Age Home.",
+    },
+    {
+      title: "A City Runs",
+      desc:
+        "Indore celebrates healthy living with its iconic city marathon.",
+    },
+    {
+      title: "Leela",
+      desc:
+        "3D projection mapping on Jaipur City Palace showcasing divine stories in new form.",
+    },
+  ],
+
+  Corporate: [
+    {
+      title: "Prem Textiles",
+      desc:
+        "Journey of cotton through one of Central India’s leading export houses.",
+    },
+    {
+      title: "Universal Transformers",
+      desc:
+        "A showcase of their industrial manufacturing excellence.",
+    },
+    {
+      title: "Diaspark",
+      desc:
+        "A global services provider poised for major growth.",
+    },
+    {
+      title: "Healthy Hearts",
+      desc:
+        "Coverage of the annual Cardiology Society of India conference.",
+    },
+    {
+      title: "Brut Force",
+      desc:
+        "How Dheeraj’s expedition relies on tough gear in extreme terrains.",
+    },
+    {
+      title: "Cleuz",
+      desc:
+        "Their wearable and mobility solutions for modern industry.",
+    },
+    {
+      title: "UAVIO",
+      desc:
+        "A look at cutting-edge aerial solutions and drone tech.",
+    },
   ],
 };
 
+/* ---------------------- Extract YouTube IDs ---------------------- */
 
 function extractId(url: string): string {
   try {
     const u = new URL(url);
 
-    // 1) Standard watch URL: ?v=ID
     const v = u.searchParams.get("v");
     if (v) return v;
 
-    // 2) youtu.be/ID
     if (u.hostname.includes("youtu.be")) {
       return u.pathname.replace("/", "").split("?")[0];
     }
 
-    // 3) youtube.com/embed/ID
     if (u.pathname.includes("/embed/")) {
       return u.pathname.split("/embed/")[1].split("?")[0];
     }
-  } catch { }
+  } catch {}
 
   return "";
 }
 
+/* ---------------------------- MAIN UI ---------------------------- */
 
 export default function VideoGallery() {
   const categories = Object.keys(videoCategories);
@@ -68,38 +192,42 @@ export default function VideoGallery() {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const pathname = usePathname();
 
+  const isWork = pathname === "/work";
+
   return (
     <div className="w-full">
       {/* Tabs */}
       <div className="flex flex-wrap justify-center gap-3 mb-8">
-        {categories.map((cat: string) => (
+        {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setActive(cat)}
-            className={`px-4 py-2 rounded-lg text-sm tracking-wide transition-all border ${active === cat
+            className={`px-4 py-2 rounded-lg text-sm tracking-wide transition-all border ${
+              active === cat
                 ? "bg-gray-900 text-white border-black"
                 : "border-gray-300 hover:border-black hover:bg-black/5"
-              }`}
+            }`}
           >
             {cat.replace(/([A-Z])/g, " $1")}
           </button>
         ))}
       </div>
 
-      {/* Video Cards */}
+      {/* Cards */}
       <div
-        className={`grid gap-6 ${pathname === "/work"
-            ? "grid-cols-1 md:grid-cols-2"       
-            : "grid-cols-2 md:grid-cols-3"  
-          }`}
+        className={`grid gap-6 ${
+          isWork
+            ? "grid-cols-1 md:grid-cols-2"
+            : "grid-cols-2 md:grid-cols-3"
+        }`}
       >
-
-        {videoCategories[active].map((url: string, index: number) => {
+        {videoCategories[active].map((url, index) => {
           const id = extractId(url);
           const thumbnail = id
             ? `https://img.youtube.com/vi/${id}/hqdefault.jpg`
             : "/fallback-thumbnail.jpg";
 
+          const meta = videoMeta[active][index];
 
           return (
             <button
@@ -107,7 +235,7 @@ export default function VideoGallery() {
               onClick={() => setActiveVideo(id)}
               className="group relative bg-white border border-gray-300 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-[1.03]"
             >
-              <div className="relative w-full h-40 md:h-100 ">
+              <div className="relative w-full h-40 md:h-60">
                 <Image
                   src={thumbnail}
                   alt="YouTube Thumbnail"
@@ -115,6 +243,18 @@ export default function VideoGallery() {
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
+
+              {/* TITLE + DESCRIPTION only on /work */}
+              {isWork && meta && (
+                <div className="p-4 text-left">
+                  <h3 className="font-semibold text-base mb-1">
+                    {meta.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    {meta.desc}
+                  </p>
+                </div>
+              )}
 
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                 <span className="text-white text-sm tracking-widest">
