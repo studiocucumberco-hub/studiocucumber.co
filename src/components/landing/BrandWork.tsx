@@ -9,18 +9,18 @@ export default function ClientLogos() {
     { url: "/logo-png/1.png", link: "https://www.uncrushedleaves.com/" },
     { url: "/logo-png/2.png", link: "https://satnpaper.com/" },
     { url: "/logo-png/3.png", link: "https://0dot1.live/" },
-    { url: "/logo-png/4.png", link: "" },
-    { url: "/logo-png/5.png", link: "https://www.linkedin.com/in/saurabh-jain-18a05939/" },
+    { url: "/logo-png/4.png", link: "https://www.instagram.com/herbsutra/" },
+    { url: "/logo-png/5.png", link: "https://premtextiles.com/" },
     { url: "/logo-png/6.png", link: "https://www.instagram.com/pizzatoindore/" },
     { url: "/logo-png/7.png", link: "https://www.motilaloswal.com/" },
     { url: "/logo-png/8.png", link: "https://cleuz.com/" },
     { url: "/logo-png/9.png", link: "https://map-india.org/" },
-    { url: "/logo-png/10.png", link: "https://www.facebook.com/aiwcb/" },
+    { url: "/logo-png/10.png", link: "https://www.aiwc.org.in/" },
     { url: "/logo-png/11.png", link: "https://www.instagram.com/herbsutra/" },
     { url: "/logo-png/12.png", link: "https://www.edelweissfin.com/" },
     { url: "/logo-png/13.png", link: "https://campusmall.in/" },
     { url: "/logo-png/14.png", link: "https://boldoutline.in/" },
-    { url: "/logo-png/15.png", link: "https://www.facebook.com/bluemountainexpedition/" },
+    { url: "/logo-png/15.png", link: "https://www.instagram.com/bluemountainexpeditions/?hl=en" },
     { url: "/logo-png/16.png", link: "https://www.instagram.com/bandishprojekt" },
     { url: "/logo-png/17.png", link: "" },
   ];
@@ -49,13 +49,10 @@ export default function ClientLogos() {
 
   return (
     <section className="w-full font-Mont bg-[#f8f8f8] px-6 sm:px-10 md:px-20 lg:px-24 pb-16">
-      <div className="text-left mb-10">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl uppercase text-[#3E4772] pb-2 tracking-tight font-bold">
-          Brands We Worked With
+      <div className="text-left mb-6">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl text-center uppercase text-[#3E4772] tracking-tight font-bold">
+          Brands We Work With
         </h2>
-        <p className="text-base sm:text-lg uppercase text-[#e1a730]">
-          Trusted by Clients
-        </p>
       </div>
 
       <div

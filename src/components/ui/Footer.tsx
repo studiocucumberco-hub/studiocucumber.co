@@ -13,9 +13,6 @@ const Footer = () => {
 
         {/* Social Section */}
         <div className="flex flex-col items-center gap-3">
-          <p className="text-[#c5c5c5] uppercase tracking-wide text-sm">
-            Follow Us
-          </p>
 
           <ul className="flex gap-6">
             {/* Instagram */}

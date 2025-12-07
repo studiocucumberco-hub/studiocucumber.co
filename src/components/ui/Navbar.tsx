@@ -50,7 +50,7 @@ export default function Navbar() {
     <nav
       className={`
         fixed top-0 left-0 w-full z-30 font-Mont uppercase transition-colors duration-500
-        ${isHome && !scrolled ? "bg-transparent text-white" : "bg-white text-black shadow-sm"}
+        ${isHome && !scrolled ? "bg-transparent text-white" : "bg-white text-black shadow-sm md:shadow-none"}
       `}
       role="navigation"
       aria-label="Main Navigation"
@@ -72,7 +72,7 @@ export default function Navbar() {
             width={300}
             height={100}
             priority
-            className="h-12 sm:h-28 w-auto object-contain"
+            className="h-12 sm:h-28 w-auto object-contain brightness-125"
           />
         </Link>
 
@@ -88,7 +88,7 @@ export default function Navbar() {
           onClick={toggleMenu}
         >
           <svg className="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-            <path stroke={scrolled?"black":"white"} strokeLinecap="round" strokeWidth="2" d="M5 7h14M5 12h14M5 17h10" />
+            <path stroke="gray" strokeLinecap="round" strokeWidth="2" d="M5 7h14M5 12h14M5 17h10" />
           </svg>
 
 

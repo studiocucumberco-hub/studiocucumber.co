@@ -30,12 +30,9 @@ export default function FAQ() {
   return (
     <section className="w-full font-Mont bg-[#f8f8f8] px-6 sm:px-10 md:px-20 lg:px-24 pb-16">
       <div className="text-left mb-10">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl uppercase text-[#3E4772] pb-2 tracking-tight font-bold">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl text-center uppercase text-[#3E4772] pb-2 tracking-tight font-bold">
           FAQs
         </h2>
-        <p className="text-base sm:text-lg uppercase text-[#e1a730]">
-          Answers You Need
-        </p>
       </div>
 
       <div className="space-y-4">
