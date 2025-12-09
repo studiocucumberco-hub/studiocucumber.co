@@ -7,7 +7,7 @@ export interface TeamMember {
   id: number;
   name: string;
   role: string;
-  img: string;
+  img?: string;
   bio: string;
 }
 
@@ -34,13 +34,17 @@ export default function TeamSection({ team }: TeamSectionProps) {
                   ${isActive ? "border-[#3E4772]/40 shadow-lg" : "border-transparent hover:shadow-md"}`}
               >
                 <div className="w-36 h-36 mb-4 rounded-full overflow-hidden border border-gray-200">
-                  <Image
-                    src={member.img}
-                    alt={member.name}
-                    width={500}
-                    height={500}
-                    className="object-cover w-full h-full"
-                  />
+                  {member.img && 
+                  (
+                    <Image
+                      src={member.img}
+                      alt={member.name}
+                      width={500}
+                      height={500}
+                      className="object-cover w-full h-full"
+                    />
+                  )
+                }
                 </div>
 
                 <h3 className={`text-lg font-bold tracking-wide ${isActive ? "text-[#3E4772]" : "text-[#3E4772]/80"}`}>

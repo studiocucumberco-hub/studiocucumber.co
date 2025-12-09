@@ -30,7 +30,6 @@ const team2: TeamMember[] = [
     id: 2,
     name: "Avinash",
     role: "Business",
-    img: "/profile/divya.jpg",
     bio: "A serial entrepreneur and consultant, Avinash handles the business side of Studio Cucumber. His diverse portfolio has interests spanning Real Estate, Finance, Franchising, Brand Management, Hospitality, Food & Beverage, Organic & Hemp Products, Beauty & Luxury Products",
   }
 ];

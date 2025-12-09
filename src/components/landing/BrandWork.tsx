@@ -70,7 +70,7 @@ export default function ClientLogos() {
           }}
         >
           {[...logos, ...logos].map((logo, idx) => (
-            <a key={idx} href={logo.link || "#"} className="shrink-0 block">
+            <a key={idx} href={logo.link || "#"} target="_blank" className="shrink-0 block">
               <Image
                 src={logo.url}
                 alt="logo"
